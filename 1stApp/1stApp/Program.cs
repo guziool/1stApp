@@ -1,34 +1,20 @@
-﻿
+﻿long number = 99010233040560678;
+string numberInString = number.ToString();
+char[] chars = numberInString.ToCharArray();
 
-string myName = "Ewa";
-bool isWoman = true;
-int myAge = 33;
-char nameRecog = myName.Last();
-
-//Sprawdzenie płci na podstawie imienia
-if (nameRecog == 'a')
+Console.WriteLine("Wynik dla liczby: " + number);
+for (int i = 0; i < 10; i++)
 {
-    isWoman = true;
-    Console.WriteLine("Imię konćzy się na a więc to kobieta");
-}
-else
-{
-    isWoman = false;
-    Console.WriteLine("Imię nie kończy się na a więc to mężczyzna");
-}
-
-if (isWoman == true)
-{
-    if (myAge < 30)
+    int counter = 0;
+    foreach (char c in chars)
     {
-        Console.WriteLine("Kobieta poniżej 30");
+        string iStr = i.ToString();
+        string cStr = c.ToString();
+        if (cStr == iStr)
+        {
+            counter++;
+        }
     }
-    else if (myAge == 33 && myName == "Ewa")
-    {
-        Console.WriteLine("Ewa, lat 33");
-    }
+    Console.WriteLine(i + " => " + counter);
 }
-else if (myAge < 18)
-{
-    Console.WriteLine("Niepełnoletni mężczyzna");
-}
+
