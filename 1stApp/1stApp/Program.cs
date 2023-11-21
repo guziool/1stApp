@@ -22,7 +22,6 @@ employee3.AddScore(1);
 employee3.AddScore(1);
 employee3.AddScore(7);
 
-
 List<Employee> employees = new List<Employee>()
 {
     employee1, employee2, employee3
@@ -32,9 +31,6 @@ List<Employee> employees2 = new List<Employee>();
 
 int maxValue = -1;
 Employee maxScoredEmployee = null;
-
-
-
 
 foreach (var emp in employees)
 {
@@ -53,10 +49,10 @@ int counter = employees2.Count;
 
 if (counter > 1) 
 {
-    Console.WriteLine("We have winners:");
+    Console.WriteLine("We have "+ counter + " winners:");
     foreach (var emp2 in employees2)
     {
-        Console.WriteLine($"{emp2.Name} {emp2.Surname} age: {emp2.Age}");
+        Console.WriteLine($"{employees2.IndexOf(emp2)+1} {emp2.Name} {emp2.Surname} age: {emp2.Age}");
     }
     Console.WriteLine("With highest score: " + maxValue);
 } 
