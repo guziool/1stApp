@@ -4,23 +4,23 @@ Employee employee1 = new Employee("Bartosz", "Zmarzlik", 30);
 Employee employee2 = new Employee("Janusz", "Kolodziej", 40);
 Employee employee3 = new Employee("Patryk", "Dudek", 25);
 
-employee1.AddScore(5);
-employee1.AddScore(1);
-employee1.AddScore(1);
-employee1.AddScore(1);
-employee1.AddScore(7);
+employee1.AddScore(-2);
+employee1.AddScore(-1);
+employee1.AddScore(-1);
+employee1.AddScore(-1);
+employee1.AddScore(-1);
 
-employee2.AddScore(5);
 employee2.AddScore(1);
 employee2.AddScore(1);
 employee2.AddScore(1);
 employee2.AddScore(1);
+employee2.AddScore(-1);
 
-employee3.AddScore(5);
-employee3.AddScore(1);
-employee3.AddScore(1);
-employee3.AddScore(1);
-employee3.AddScore(7);
+employee3.AddScore(-10);
+employee3.AddScore(-10);
+employee3.AddScore(-10);
+employee3.AddScore(-10);
+employee3.AddScore(-10);
 
 List<Employee> employees = new List<Employee>()
 {
@@ -29,7 +29,7 @@ List<Employee> employees = new List<Employee>()
 
 List<Employee> employees2 = new List<Employee>();
 
-int maxValue = -1;
+int maxValue = int.MinValue;
 Employee maxScoredEmployee = null;
 
 foreach (var emp in employees)
