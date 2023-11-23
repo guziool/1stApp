@@ -2,19 +2,19 @@
 
 Employee employee1 = new Employee("Bartosz", "Zmarzlik", 30);
 Employee employee2 = new Employee("Janusz", "Kolodziej", 40);
-Employee employee3 = new Employee("Patryk", "Dudek", 25);
+Employee employee3 = new Employee("Patryk", "Dudek", 30);
 
-employee1.AddScore(-2);
-employee1.AddScore(-1);
-employee1.AddScore(-1);
-employee1.AddScore(-1);
-employee1.AddScore(-1);
+employee1.AddScore(1);
+employee1.AddScore(1);
+employee1.AddScore(1);
+employee1.AddScore(1);
+employee1.AddScore(1);
 
 employee2.AddScore(1);
 employee2.AddScore(1);
 employee2.AddScore(1);
 employee2.AddScore(1);
-employee2.AddScore(-1);
+employee2.AddScore(1);
 
 employee3.AddScore(-10);
 employee3.AddScore(-10);
