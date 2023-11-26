@@ -2,46 +2,48 @@ using System.Linq.Expressions;
 
 namespace _1stApp.Tests
 {
-    public class Tests
+    public class EmployeeTests
     {
         [Test]
-        public void WhenEmployeePositiveScoresAdded_ShouldReturnPositiveSum()
+        public void WhenCalculatingStatisticsMax_ShouldReturnMax()
         {
             //arrange
-            var employee1 = new Employee("John", "Kowalski", 18);
-            employee1.AddScore(1);
-            employee1.AddScore(2);
-            employee1.AddScore(10);
+            var employee1 = new Employee("John", "Kowalski");
+            employee1.AddGrade(1);
+            employee1.AddGrade(2);
+            employee1.AddGrade(-10);
             //act
-            var result = employee1.Result;
+            var statistcs = employee1.GetStatistics();
             //assert
-            Assert.AreEqual(13, result);
+            Assert.AreEqual(2, statistcs.Max);
         }
         [Test]
-        public void WhenEmployeePositiveNegativeScoresAdded_ShouldReturnSum()
+        public void WhenCalculatingStatisticsMin_ShouldReturnMin()
         {
             //arrange
-            var employee2 = new Employee("Mis", "Puchatek", 6);
-            employee2.AddScore(-1);
-            employee2.AddScore(2);
-            employee2.AddScore(10);
+            var employee1 = new Employee("John", "Kowalski");
+            employee1.AddGrade(1);
+            employee1.AddGrade(2);
+            employee1.AddGrade(-10);
             //act
-            var result = employee2.Result;
+            //var statistics = employee1.GetStatistics();
+            var statistics2 = employee1.GetStatistics2();
             //assert
-            Assert.AreEqual(11, result);
+            Assert.AreEqual(-10, statistics2.Min);
         }
         [Test]
-        public void WhenEmployeePositiveNegativeScoresAddedEqualZero_ShouldReturn0()
+        public void WhenCalculatingStatisticsAverage_ShouldReturnAverage()
         {
-            //arrange
-            var employee3 = new Employee("Krol", "Macius", 1);
-            employee3.AddScore(2);
-            employee3.AddScore(3);
-            employee3.AddScore(-5);
+           //arrange
+            var employee1 = new Employee("John", "Kowalski");
+            employee1.AddGrade(1);
+            employee1.AddGrade(2);
+            employee1.AddGrade(3);
             //act
-            var result = employee3.Result;
+            var statistics = employee1.GetStatistics();
             //assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(2, statistics.Average);
+            Assert.That(statistics.Average, Is.EqualTo(2));
         }
     }
 }

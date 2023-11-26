@@ -1,60 +1,13 @@
 ﻿using _1stApp;
 
-Employee employee1 = new Employee("Bartosz", "Zmarzlik", 30);
-Employee employee2 = new Employee("Janusz", "Kolodziej", 40);
-Employee employee3 = new Employee("Patryk", "Dudek", 30);
-
-employee1.AddScore(1);
-employee1.AddScore(1);
-employee1.AddScore(1);
-employee1.AddScore(1);
-employee1.AddScore(1);
-
-employee2.AddScore(1);
-employee2.AddScore(1);
-employee2.AddScore(1);
-employee2.AddScore(1);
-employee2.AddScore(1);
-
-employee3.AddScore(-10);
-employee3.AddScore(-10);
-employee3.AddScore(-10);
-employee3.AddScore(-10);
-employee3.AddScore(-10);
-
-List<Employee> employees = new List<Employee>()
-{
-    employee1, employee2, employee3
-};
-
-List<Employee> employees2 = new List<Employee>();
-
-int maxValue = int.MinValue;
-Employee maxScoredEmployee = null;
-
-foreach (var emp in employees)
-{
-    if (emp.Result > maxValue)
-    {
-        maxScoredEmployee = emp;
-        maxValue = emp.Result;
-        employees2.Clear();
-    }
-    if ( emp.Result == maxValue)
-    {
-        employees2.Add(emp);
-    }
-}
-int counter = employees2.Count;
-
-if (counter > 1) 
-{
-    Console.WriteLine("We have "+ counter + " winners:");
-    foreach (var emp2 in employees2)
-    {
-        Console.WriteLine($"{employees2.IndexOf(emp2)+1} {emp2.Name} {emp2.Surname} age: {emp2.Age}");
-    }
-    Console.WriteLine("With highest score: " + maxValue);
-} 
-else
-Console.WriteLine($"The highest scored employee is {maxScoredEmployee.Name} {maxScoredEmployee.Surname} Age: {maxScoredEmployee.Age} with score: {maxScoredEmployee.Result}");
+var employee1 = new Employee("Stefan", "Kowalski");
+employee1.AddGrade(1);
+employee1.AddGrade(2);
+employee1.AddGrade(-10);
+//employee1.AddGrade(3);
+var statistics = employee1.GetStatistics();
+var statistics2 = employee1.GetStatistics2();
+Console.WriteLine($"Tatal number of grades: {statistics.Counter}, secondary methed: {statistics2.Counter}" );
+Console.WriteLine($"Average: {statistics.Average:N2}, secondary method: {statistics2.Average:N2}");
+Console.WriteLine($"Max: {statistics.Max}, secondary method: {statistics2.Max}");
+Console.WriteLine($"Min: {statistics.Min}, secondary method: {statistics2.Min}");
