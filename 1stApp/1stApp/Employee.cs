@@ -65,20 +65,20 @@ namespace _1stApp
         }
         public Statistics GetStatistics2()
         {
-            var statistics2 = new Statistics();
-            statistics2.Average = 0;
-            statistics2.Max = float.MinValue;
-            statistics2.Min = float.MaxValue;
-            statistics2.Counter = this.grades.Count;
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            statistics.Counter = this.grades.Count;
             foreach (var grade in this.grades)
             {
-                statistics2.Min = Math.Min(statistics2.Min, grade);
-                statistics2.Max = Math.Max(statistics2.Max, grade);
-                statistics2.Average += grade;
+                statistics.Min = Math.Min(statistics.Min, grade);
+                statistics.Max = Math.Max(statistics.Max, grade);
+                statistics.Average += grade;
 
             }
-            statistics2.Average /= this.grades.Count;
-            return statistics2;
+            statistics.Average /= this.grades.Count;
+            return statistics;
         }
     }
 }
