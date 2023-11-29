@@ -49,25 +49,20 @@ namespace _1stApp
         }
         public void AddGrade(char grade)
         {
-            switch (grade)
+            switch (char.ToLower(grade))
             {
-                case 'A':
-                case 'a':
+                case  'a':
                     this.AddGrade(100);
                     break;
-                case 'B':
                 case 'b':
                     this.AddGrade(80);
                     break;
-                case 'C':
                 case 'c':
                     this.AddGrade(60);
                     break;
-                case 'D':
                 case 'd':
-                    this.AddGrade(40);
+                   this.AddGrade(40);
                     break;
-                case 'E':
                 case 'e':
                     this.AddGrade(20);
                     break;
