@@ -1,22 +1,36 @@
 ﻿using _1stApp;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+Console.WriteLine("##################################################");
+Console.WriteLine("#                                                #");
+Console.WriteLine("#                                                #");
+Console.WriteLine("#   Welcome to the employee evaluation program   #");
+Console.WriteLine("#                                                #");
+Console.WriteLine("#                                                #");
+Console.WriteLine("##################################################");
+Console.WriteLine();
+var employee1 = new Employee();
+Console.Write("Type the employee's grade: ");
+var firstinput = Console.ReadLine();
+employee1.AddGrade(firstinput);
+while (true)
+{
+    Console.Write("Type the next employee's grade or quit program by typing q: ");
+    var input = Console.ReadLine();
+    if (input.ToLower() == "q")
+    {
+        break;
+    }
+    employee1.AddGrade(input);
+};
+var statistcs = employee1.GetStatistics();
+Console.WriteLine();
+Console.WriteLine("Employee evaluation results: ");
+Console.WriteLine("##################################################");
+Console.WriteLine($"No of grades: {statistcs.Counter}");
+Console.WriteLine($"AVG: {statistcs.Average}");
+Console.WriteLine($"Max: {statistcs.Max}");
+Console.WriteLine($"Min: {statistcs.Min}");
+Console.WriteLine("##################################################");
+Console.WriteLine($"Final Grade: {statistcs.AverageLetter}");
 
-var employee1 = new Employee("Stefan", "Kowalski");
-employee1.AddGrade("Adam");
-employee1.AddGrade("101");
-employee1.AddGrade(10);
-employee1.AddGrade(100);
-employee1.AddGrade(0.004);
-var statistics = employee1.GetStatistics();
-var statistics1 = employee1.GetStatisticsWithForEach();
-var statistics2 = employee1.GetStatisticsWithFor();
-var statistics3 = employee1.GetStatisticsWithDoWhile();
-var statistics4 = employee1.GetStatisticsWithWhile();
-Console.WriteLine($"{"Loop Foreach",15} | {"Loop For",15} | {"Loop DoWhile",15} | {"Loop While",15}");
-Console.WriteLine($"Grades No:");
-Console.WriteLine($"{statistics1.Counter,15} | {statistics2.Counter,15} | {statistics3.Counter,15} | {statistics4.Counter,15}");
-Console.WriteLine($"Min:");
-Console.WriteLine($"{statistics1.Min,15} | {statistics2.Min,14}  |  {statistics3.Min,14} | {statistics4.Min,14}");
-Console.WriteLine($"Max");
-Console.WriteLine($"{statistics1.Max,15} | {statistics2.Max,14}  |  {statistics3.Max,14} | {statistics4.Max,14}");
-Console.WriteLine($"Average");
-Console.WriteLine($"{statistics1.Average,15} | {statistics2.Average,14}  |  {statistics3.Average,14} | {statistics4.Average,15}");
