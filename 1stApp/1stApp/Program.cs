@@ -12,7 +12,14 @@ Console.WriteLine();
 var employee1 = new Employee();
 Console.Write("Type the employee's grade: ");
 var firstinput = Console.ReadLine();
-employee1.AddGrade(firstinput);
+try
+{
+    employee1.AddGrade(firstinput);
+}
+catch (Exception exep)
+{
+    Console.WriteLine($"Processing failed: {exep.Message}");
+}
 while (true)
 {
     Console.Write("Type the next employee's grade or quit program by typing q: ");
@@ -21,7 +28,14 @@ while (true)
     {
         break;
     }
-    employee1.AddGrade(input);
+    try
+    {
+        employee1.AddGrade(input);
+    }
+    catch(Exception exep)
+    {
+        Console.WriteLine($"Processing failed: {exep.Message}");
+    }
 };
 var statistcs = employee1.GetStatistics();
 Console.WriteLine();

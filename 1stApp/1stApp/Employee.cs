@@ -24,7 +24,7 @@ namespace _1stApp
             }
             else
             {
-                Console.WriteLine("invalid grade value");
+                throw new Exception("Invalid grade value");
             }
         }
         public void AddGrade(long grade)
@@ -67,8 +67,8 @@ namespace _1stApp
                     this.AddGrade(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter, only A/a, B/b, C/c, D/d, or E/e can be used");
-                    break;
+                    throw new  Exception("Wrong Letter, only A/a, B/b, C/c, D/d, or E/e can be used");
+                   
             }
         }
         public void AddGrade(string grade)
@@ -83,7 +83,7 @@ namespace _1stApp
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         public Statistics GetStatistics()
