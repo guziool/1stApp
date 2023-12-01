@@ -1,21 +1,26 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace _1stApp
+﻿namespace _1stApp
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = surname;
-        }
         public Employee()
+            : this("unkown", "unkown")
         {
         }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
+        public Employee(string name, string surname, string position, string department)
+             : base(name, surname)
+        {
+            this.Position = position;
+            this.Department = department;
+        }
+        public Employee(string name, string surname)
+            : this(name, surname, "no position", "no department")
+        {
+
+        }
+        public string Position { get; set; }
+        public string Department { get; set; }
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -51,7 +56,7 @@ namespace _1stApp
         {
             switch (char.ToLower(grade))
             {
-                case  'a':
+                case 'a':
                     this.AddGrade(100);
                     break;
                 case 'b':
@@ -61,14 +66,14 @@ namespace _1stApp
                     this.AddGrade(60);
                     break;
                 case 'd':
-                   this.AddGrade(40);
+                    this.AddGrade(40);
                     break;
                 case 'e':
                     this.AddGrade(20);
                     break;
                 default:
-                    throw new  Exception("Wrong Letter, only A/a, B/b, C/c, D/d, or E/e can be used");
-                   
+                    throw new Exception("Wrong Letter, only A/a, B/b, C/c, D/d, or E/e can be used");
+
             }
         }
         public void AddGrade(string grade)
