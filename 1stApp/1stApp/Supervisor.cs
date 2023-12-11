@@ -1,6 +1,6 @@
 ﻿namespace _1stApp
 {
-    public class Supervisor : IEmployee
+    public class Supervisor
     {
         private List<float> grades = new List<float>();
 

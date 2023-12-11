@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using static _1stApp.EmployeeBase;
 
 namespace _1stApp
 {
@@ -12,6 +13,6 @@ namespace _1stApp
         void AddGrade(string grade);
         void AddGrade(int grade);
         void AddGrade(char grade);
-       Statistics GetStatistics();
+        Statistics GetStatistics();
     }
 }

@@ -10,6 +10,7 @@ namespace _1stApp
             : base(name, surname)
         {
         }
+        public override event GradeAddedDelegate GradeAdded;
         public  virtual void ClearContent()
         {
             if (File.Exists(fileName))
@@ -24,6 +25,8 @@ namespace _1stApp
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+                    if (GradeAdded != null)
+                        GradeAdded(this, new EventArgs());
                 }
             }
             else
