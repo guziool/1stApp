@@ -5,13 +5,12 @@ namespace _1stApp
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
-        private List<float> grades = new List<float>();
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
         }
         public override event GradeAddedDelegate GradeAdded;
-        public  virtual void ClearContent()
+        public virtual void ClearContent()
         {
             if (File.Exists(fileName))
             {
@@ -25,8 +24,11 @@ namespace _1stApp
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
-                    if (GradeAdded != null)
-                        GradeAdded(this, new EventArgs());
+
+                }
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else
@@ -91,7 +93,7 @@ namespace _1stApp
         }
         public override Statistics GetStatistics()
         {
-            var result = new Statistics();
+            var statistics = new Statistics();
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -99,35 +101,13 @@ namespace _1stApp
                     var line = reader.ReadLine();
                     while (line != null)
                     {
-                        var number = float.Parse(line);
-                        grades.Add(number);
+                        var grade = float.Parse(line);
+                        statistics.AddGrade(grade);
                         line = reader.ReadLine();
-                        result.Average = grades.Average();
-                        result.Max = grades.Max();
-                        result.Min = grades.Min();
-                        result.Counter = this.grades.Count;
-                        switch (result.Average)
-                        {
-                            case var average when average >= 80:
-                                result.AverageLetter = 'A';
-                                break;
-                            case var average when average >= 60:
-                                result.AverageLetter = 'B';
-                                break;
-                            case var average when average >= 40:
-                                result.AverageLetter = 'C';
-                                break;
-                            case var average when average >= 20:
-                                result.AverageLetter = 'D';
-                                break;
-                            default:
-                                result.AverageLetter = 'E';
-                                break;
-                        }
                     }
                 }
             }
-            return result;
+            return statistics;
         }
     }
 }

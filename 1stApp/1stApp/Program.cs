@@ -16,7 +16,7 @@ employee1.GradeAdded += EmployeeGradeAdded;
 
 void EmployeeGradeAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("New grade added!");
+    Console.WriteLine("New grade added (+)");
 }
 
 Console.Write("Type the employee's grade: ");
@@ -62,6 +62,7 @@ Console.WriteLine($"No of grades: {statistcs.Counter}");
 Console.WriteLine($"AVG: {statistcs.Average:N2}");
 Console.WriteLine($"Max: {statistcs.Max}");
 Console.WriteLine($"Min: {statistcs.Min}");
+Console.WriteLine($"Sum: {statistcs.Sum}");
 Console.WriteLine("##################################################");
 Console.WriteLine($"Final Grade: {statistcs.AverageLetter}");
 
